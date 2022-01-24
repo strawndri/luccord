@@ -88,6 +88,7 @@ export default function HomePage() {
                   marginBottom: '16px',
                 }}
                 src={`https://github.com/${username}.png`}
+                alt="Usuário"
               />
               <Text
                 variant="body4"
