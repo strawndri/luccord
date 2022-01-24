@@ -2,28 +2,7 @@ import { Box, Button, Text, TextField, Image} from '@skynexui/components'
 import appConfig from '../../config.json';
 
 import GlobalStyle from '../styles/global';
-
-
-// Component -> Primary Title
-function Title(props) {
-
-    const Tag = props.tag || 'h1';
-
-    return (
-        <>
-            <Tag>{props.children}</Tag>
-        
-            <style jsx>{`
-
-            ${Tag}{
-                font-family: Arial;
-                color: ${appConfig.theme.colors.primary['100']};
-            }
-
-            `}</style>
-        </>
-    );
-}
+import { Container, Title } from './styles';
 
 export default function HomePage() {
     const username = 'strawndri';
@@ -31,14 +10,8 @@ export default function HomePage() {
     return (
       <>
         <GlobalStyle />
-        <Box
-          styleSheet={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            backgroundColor: appConfig.theme.colors.primary[500],
-            backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
-            backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
-          }}
-        >
+        <Container>
+          
           <Box
             styleSheet={{
               display: 'flex',
@@ -51,7 +24,7 @@ export default function HomePage() {
               width: '100%', maxWidth: '700px',
               borderRadius: '5px', padding: '32px', margin: '16px',
               boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-              backgroundColor: appConfig.theme.colors.neutrals[700],
+              backgroundColor: appConfig.theme.colors.primary['medium'],
             }}
           >
             {/* Formulário */}
@@ -62,8 +35,8 @@ export default function HomePage() {
                 width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
               }}
             >
-              <Title tag="h2">Boas vindas!</Title>
-              <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+              <Title tag="h2">Boas vindas :)</Title>
+              <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.default['text-light']}}>
                 {appConfig.name}
               </Text>
   
@@ -71,10 +44,10 @@ export default function HomePage() {
                 fullWidth
                 textFieldColors={{
                   neutral: {
-                    textColor: appConfig.theme.colors.neutrals[200],
-                    mainColor: appConfig.theme.colors.neutrals[900],
-                    mainColorHighlight: appConfig.theme.colors.primary[500],
-                    backgroundColor: appConfig.theme.colors.neutrals[800],
+                    textColor: appConfig.theme.colors.default['text'],
+                    mainColor: appConfig.theme.colors.primary['light'],
+                    mainColorHighlight: appConfig.theme.colors.primary['light'],
+                    backgroundColor: appConfig.theme.colors.primary['dark'],
                   },
                 }}
               />
@@ -83,10 +56,10 @@ export default function HomePage() {
                 label='Entrar'
                 fullWidth
                 buttonColors={{
-                  contrastColor: appConfig.theme.colors.neutrals["000"],
-                  mainColor: appConfig.theme.colors.primary[500],
-                  mainColorLight: appConfig.theme.colors.primary[400],
-                  mainColorStrong: appConfig.theme.colors.primary[600],
+                  contrastColor: appConfig.theme.colors.default['text'],
+                  mainColor: appConfig.theme.colors.secondary['dark'],
+                  mainColorLight: appConfig.theme.colors.primary['medium'],
+                  mainColorStrong: appConfig.theme.colors.secondary['medium'],
                 }}
               />
             </Box>
@@ -101,9 +74,9 @@ export default function HomePage() {
                 alignItems: 'center',
                 maxWidth: '200px',
                 padding: '16px',
-                backgroundColor: appConfig.theme.colors.neutrals[800],
+                backgroundColor: appConfig.theme.colors.primary['dark'],
                 border: '1px solid',
-                borderColor: appConfig.theme.colors.neutrals[999],
+                borderColor: appConfig.theme.colors.primary['light'],
                 borderRadius: '10px',
                 flex: 1,
                 minHeight: '240px',
@@ -119,8 +92,7 @@ export default function HomePage() {
               <Text
                 variant="body4"
                 styleSheet={{
-                  color: appConfig.theme.colors.neutrals[200],
-                  backgroundColor: appConfig.theme.colors.neutrals[900],
+                  color: appConfig.theme.colors.default['text-light'],
                   padding: '3px 10px',
                   borderRadius: '1000px'
                 }}
@@ -130,7 +102,7 @@ export default function HomePage() {
             </Box>
             {/* Photo Area */}
           </Box>
-        </Box>
+        </Container>
       </>
     );
   }

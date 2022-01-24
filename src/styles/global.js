@@ -1,6 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 
 export default createGlobalStyle`
+
   * {
     margin: 0;
     padding: 0;
@@ -12,7 +13,6 @@ export default createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     }
 
-    /* App fit Height */ 
     html, body, #__next {
     min-height: 100vh;
     display: flex;
@@ -26,8 +26,6 @@ export default createGlobalStyle`
     #__next > * {
     flex: 1;
     }
-
-    /* ./App fit Height */ 
 `;
 
 

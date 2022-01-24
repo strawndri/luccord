@@ -1,5 +1,5 @@
 {
-    "name": "LucCord",
+    "name": "LucCord - by Strawndri",
     "theme": {
         "colors": {
             "primary": {
@@ -9,13 +9,14 @@
             },
 
             "secondary": {
-                "light": "#E378A4",
-                "medium": "#DB4D88",
+                "light": "#DB598C",
+                "medium": "#AB225B",
                 "dark": "#981F52"
             }, 
 
             "default": {
                 "text": "#D2D2EE",
+                "text-light": "#D2D2EE66",
                 "black": "#333"
             }
         }
