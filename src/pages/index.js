@@ -3,7 +3,7 @@ import { Box, Button, Text, TextField, Image} from '@skynexui/components'
 import appConfig from '../../config.json';
 
 import GlobalStyle from '../styles/global';
-import { Container, Title } from './styles';
+import Container from './styles';
 
 export default function HomePage() {
     const username = 'strawndri';
@@ -36,7 +36,7 @@ export default function HomePage() {
                 width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
               }}
             >
-              <Title tag="h2">Boas vindas :)</Title>
+              <h1 className="welcome">Boas vindas :)</h1>
               <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.default['text-light']}}>
                 {appConfig.name}
               </Text>
