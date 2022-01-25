@@ -11,6 +11,8 @@ export default createGlobalStyle`
 
     body {
     font-family: 'Open Sans', sans-serif;
+    background-color: #333;
+    color: #f2f2f2;
     }
 
     html, body, #__next {
@@ -26,6 +28,4 @@ export default createGlobalStyle`
     #__next > * {
     flex: 1;
     }
-`
-
-
+`;
