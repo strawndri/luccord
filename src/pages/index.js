@@ -10,9 +10,7 @@ export default function HomePage() {
 
   const [userImg, setUserImg] = useState('https://cliply.co/wp-content/uploads/2021/08/372108630_DISCORD_LOGO_BLACK_400.gif');
   const [username, setUsername] = useState('');
-  const [user, setUser] = useState('');
 
-  console.log(user)
   const routing = useRouter();
   
   return (
@@ -63,7 +61,6 @@ export default function HomePage() {
       setUsername(currentValue)
 
       if (username.length > 3) {
-        // setUser(fetch(`api.github/${currentValue}`))
         setUserImg(`https://github.com/${currentValue}.png`)
       } else {
         setUserImg('https://cliply.co/wp-content/uploads/2021/08/372108630_DISCORD_LOGO_BLACK_400.gif');
@@ -120,7 +117,7 @@ export default function HomePage() {
     onChange={function (event) {
       console.log(event)
     }}
-    alt="Usuário"
+    alt=" "
     />
     <Text
     variant="body4"
