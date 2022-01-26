@@ -8,7 +8,11 @@ import Container from './styles';
 
 export default function HomePage() {
 
+  const [userImg, setUserImg] = useState('https://cliply.co/wp-content/uploads/2021/08/372108630_DISCORD_LOGO_BLACK_400.gif');
   const [username, setUsername] = useState('');
+  const [user, setUser] = useState('');
+
+  console.log(user)
   const routing = useRouter();
   
   return (
@@ -43,7 +47,7 @@ export default function HomePage() {
       width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
     }}
     >
-    <h1 className="welcome">Bem Vinda(o), {username}!</h1>
+    <h1 className="welcome">Bem Vinda(o)!</h1>
     <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutral["050"]}}>
     {appConfig.name}
     </Text>
@@ -52,12 +56,18 @@ export default function HomePage() {
     value={username}
     placeholder="Digite seu usuário do Github"
     onChange={function (event) {
-
       // Capturar valor
       const currentValue = event.target.value;
-      
+
       // Alterar o valor da variável
-      setUsername(currentValue);
+      setUsername(currentValue)
+
+      if (username.length > 3) {
+        // setUser(fetch(`api.github/${currentValue}`))
+        setUserImg(`https://github.com/${currentValue}.png`)
+      } else {
+        setUserImg('https://cliply.co/wp-content/uploads/2021/08/372108630_DISCORD_LOGO_BLACK_400.gif');
+      }
 
     }}
     fullWidth
@@ -106,7 +116,10 @@ export default function HomePage() {
       borderRadius: '50%',
       marginBottom: '16px',
     }}
-    src={`https://github.com/${username}.png`}
+    src={userImg}
+    onChange={function (event) {
+      console.log(event)
+    }}
     alt="Usuário"
     />
     <Text
