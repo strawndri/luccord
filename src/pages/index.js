@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 import { Box, Button, Text, TextField, Image} from '@skynexui/components'
 import appConfig from '../../config.json';
 
-import GlobalStyle from '../styles/global';
+import GlobalStyle from '../assets/styles/global';
 import Container from './styles';
 
 export default function HomePage() {
 
-  const [username, setUsername] = useState('strawndri');
+  const [username, setUsername] = useState('');
   const routing = useRouter();
   
   return (
@@ -28,7 +28,7 @@ export default function HomePage() {
       width: '100%', maxWidth: '700px',
       borderRadius: '5px', padding: '32px', margin: '16px',
       boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-      backgroundColor: appConfig.theme.colors.primary['medium'],
+      backgroundColor: appConfig.theme.colors.primary["100"],
     }}
     >
     {/* Formulário */}
@@ -43,13 +43,14 @@ export default function HomePage() {
       width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
     }}
     >
-    <h1 className="welcome">Boas vindas :)</h1>
-    <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.default['text-light']}}>
+    <h1 className="welcome">Bem Vinda(o), {username}!</h1>
+    <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutral["050"]}}>
     {appConfig.name}
     </Text>
     
     <TextField
     value={username}
+    placeholder="Digite seu usuário do Github"
     onChange={function (event) {
 
       // Capturar valor
@@ -62,10 +63,10 @@ export default function HomePage() {
     fullWidth
     textFieldColors={{
       neutral: {
-        textColor: appConfig.theme.colors.default['text'],
-        mainColor: appConfig.theme.colors.primary['light'],
-        mainColorHighlight: appConfig.theme.colors.primary['light'],
-        backgroundColor: appConfig.theme.colors.primary['dark'],
+        textColor: appConfig.theme.colors.neutral["000"],
+        mainColor: appConfig.theme.colors.primary["050"],
+        mainColorHighlight: appConfig.theme.colors.primary["050"],
+        backgroundColor: appConfig.theme.colors.primary["050"],
       },
     }}
     />
@@ -74,10 +75,10 @@ export default function HomePage() {
     label='Entrar'
     fullWidth
     buttonColors={{
-      contrastColor: appConfig.theme.colors.default['text'],
-      mainColor: appConfig.theme.colors.secondary['dark'],
-      mainColorLight: appConfig.theme.colors.primary['medium'],
-      mainColorStrong: appConfig.theme.colors.secondary['medium'],
+      contrastColor: appConfig.theme.colors.neutral["000"],
+      mainColor: appConfig.theme.colors.secondary["050"],
+      mainColorLight: appConfig.theme.colors.primary["100"],
+      mainColorStrong: appConfig.theme.colors.secondary["100"],
     }}
     />
     </Box>
@@ -92,9 +93,9 @@ export default function HomePage() {
       alignItems: 'center',
       maxWidth: '200px',
       padding: '16px',
-      backgroundColor: appConfig.theme.colors.primary['dark'],
+      backgroundColor: appConfig.theme.colors.primary["050"],
       border: '1px solid',
-      borderColor: appConfig.theme.colors.primary['light'],
+      borderColor: appConfig.theme.colors.neutral["150"],
       borderRadius: '10px',
       flex: 1,
       minHeight: '240px',
@@ -111,7 +112,8 @@ export default function HomePage() {
     <Text
     variant="body4"
     styleSheet={{
-      color: appConfig.theme.colors.default['text-light'],
+      color: appConfig.theme.colors.neutral["050"],
+      backgroundColor: appConfig.theme.colors.primary["000"],
       padding: '3px 10px',
       borderRadius: '1000px'
     }}

@@ -1,4 +1,4 @@
-import GlobalStyle from '../styles/global';
+import GlobalStyle from '../assets/styles/global';
 
 export default function Chat () {
     return(

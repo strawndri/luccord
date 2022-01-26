@@ -11,7 +11,7 @@ export default createGlobalStyle`
 
     body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #333;
+    background: url("https://i.pinimg.com/originals/5b/f5/6e/5bf56e6309c48ea454690462b1e86f8f.jpg") center / cover no-repeat fixed;
     color: #f2f2f2;
     }
 
