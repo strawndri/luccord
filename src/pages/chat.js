@@ -1,27 +1,51 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import appConfig from '../../config.json';
+
+import { createClient } from '@supabase/supabase-js';
 
 import GlobalStyle from '../assets/styles/global';
 import Container from '../assets/styles/styles';
+
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
+const SUPABASE_URL = 'https://xtzudbuzbysbikfxynvn.supabase.co';
+const subaBaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 export default function ChatPage() {
 
     const [message, setMessage] = useState('');
     const [messagesList, setmessagesList] = useState([]);
 
+    useEffect(() => {
+        subaBaseClient
+            .from('messages')
+            .select('*')
+            .order('id', {ascending: false})
+            .then(({data}) => {
+                setmessagesList(data)
+            });
+    }, []);
+
     const handleNewMessage = (newMessage) => {
 
         const message = {
-            id: messagesList.length + 1,
+            // id: messagesList.length + 1,
             from: 'strawndri',
             txtMessage: newMessage
         }
 
-        setmessagesList([
-            message,
-            ...messagesList
-        ])
+        subaBaseClient
+            .from('messages')
+            .insert([
+                message
+            ])
+            .then(({data}) => {
+                setmessagesList([
+                    data[0],
+                    ...messagesList
+                ])
+            })
+            
         setMessage("")
     }
 
@@ -88,7 +112,7 @@ export default function ChatPage() {
                                 placeholder="Insira sua mensagem aqui..."
                                 type="textarea"
                                 styleSheet={{
-                                    width: '100%',
+                                    width: '95%',
                                     border: '0',
                                     resize: 'none',
                                     borderRadius: '5px',
@@ -179,7 +203,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/strawndri.png`}
+                                src={`https://github.com/${message.from}.png`}
                             />
                             <Text tag="strong" styleSheet={{color: appConfig.theme.colors.neutral['01']}}>
                                 {message.from}
