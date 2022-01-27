@@ -1,4 +1,4 @@
-import { Box, Text, TextField, Image, Button } from '@skynexui/components';
+import { Icon, Box, Text, TextField, Image, Button } from '@skynexui/components';
 import { useState, useEffect } from 'react';
 import appConfig from '../../config.json';
 
@@ -20,8 +20,8 @@ export default function ChatPage() {
         subaBaseClient
             .from('messages')
             .select('*')
-            .order('id', {ascending: false})
-            .then(({data}) => {
+            .order('id', { ascending: false })
+            .then(({ data }) => {
                 setmessagesList(data)
             });
     }, []);
@@ -39,13 +39,13 @@ export default function ChatPage() {
             .insert([
                 message
             ])
-            .then(({data}) => {
+            .then(({ data }) => {
                 setmessagesList([
                     data[0],
                     ...messagesList
                 ])
             })
-            
+
         setMessage("")
     }
 
@@ -122,9 +122,24 @@ export default function ChatPage() {
                                     color: appConfig.theme.colors.neutral["01"],
                                 }}
                             />
-                            <Button label="Enviar" styleSheet={{
+
+                            <Button iconName="image" styleSheet={{
+                                marginRight: '5px',
                                 backgroundColor: appConfig.theme.colors.secondary['02'],
                                 hover: {
+                                    backgroundColor: appConfig.theme.colors.secondary['03']
+                                },
+                                focus: {
+                                    backgroundColor: appConfig.theme.colors.secondary['03']
+                                }
+                            }}/>
+
+                            <Button iconName="arrowUp" styleSheet={{
+                                backgroundColor: appConfig.theme.colors.secondary['02'],
+                                hover: {
+                                    backgroundColor: appConfig.theme.colors.secondary['04']
+                                },
+                                focus: {
                                     backgroundColor: appConfig.theme.colors.secondary['03']
                                 }
                             }}/>
@@ -139,7 +154,7 @@ export default function ChatPage() {
 function Header() {
     return (
         <>
-            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: appConfig.theme.colors.neutral['03']}} >
+            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: appConfig.theme.colors.neutral['03'] }} >
                 <Text variant='heading5'>
                     Chat
                 </Text>
@@ -152,6 +167,9 @@ function Header() {
                         color: appConfig.theme.colors.neutral['03'],
                         hover: {
                             backgroundColor: appConfig.theme.colors.primary['04']
+                        },
+                        focus: {
+                            backgroundColor: appConfig.theme.colors.primary['03']
                         }
                     }}
                 />
@@ -205,7 +223,7 @@ function MessageList(props) {
                                 }}
                                 src={`https://github.com/${message.from}.png`}
                             />
-                            <Text tag="strong" styleSheet={{color: appConfig.theme.colors.neutral['01']}}>
+                            <Text tag="strong" styleSheet={{ color: appConfig.theme.colors.neutral['01'] }}>
                                 {message.from}
                             </Text>
                             <Text
