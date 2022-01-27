@@ -4,7 +4,7 @@ import { Box, Button, Text, TextField, Image} from '@skynexui/components'
 import appConfig from '../../config.json';
 
 import GlobalStyle from '../assets/styles/global';
-import Container from './styles';
+import Container from '../assets/styles/styles';
 
 export default function HomePage() {
 
@@ -30,7 +30,7 @@ export default function HomePage() {
       width: '100%', maxWidth: '700px',
       borderRadius: '5px', padding: '32px', margin: '16px',
       boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-      backgroundColor: appConfig.theme.colors.primary["100"],
+      backgroundColor: appConfig.theme.colors.primary["05"],
     }}
     >
     {/* Formulário */}
@@ -46,7 +46,7 @@ export default function HomePage() {
     }}
     >
     <h1 className="welcome">Bem Vinda(o)!</h1>
-    <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutral["050"]}}>
+    <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutral["03"]}}>
     {appConfig.name}
     </Text>
     
@@ -70,10 +70,9 @@ export default function HomePage() {
     fullWidth
     textFieldColors={{
       neutral: {
-        textColor: appConfig.theme.colors.neutral["000"],
-        mainColor: appConfig.theme.colors.primary["050"],
-        mainColorHighlight: appConfig.theme.colors.primary["050"],
-        backgroundColor: appConfig.theme.colors.primary["050"],
+        textColor: appConfig.theme.colors.neutral["01"],
+        mainColorHighlight: appConfig.theme.colors.primary["02"],
+        backgroundColor: appConfig.theme.colors.primary["03"],
       },
     }}
     />
@@ -82,10 +81,9 @@ export default function HomePage() {
     label='Entrar'
     fullWidth
     buttonColors={{
-      contrastColor: appConfig.theme.colors.neutral["000"],
-      mainColor: appConfig.theme.colors.secondary["050"],
-      mainColorLight: appConfig.theme.colors.primary["100"],
-      mainColorStrong: appConfig.theme.colors.secondary["100"],
+      contrastColor: appConfig.theme.colors.neutral["01"],
+      mainColor: appConfig.theme.colors.secondary["02"],
+      mainColorStrong: appConfig.theme.colors.secondary["03"],
     }}
     />
     </Box>
@@ -100,10 +98,8 @@ export default function HomePage() {
       alignItems: 'center',
       maxWidth: '200px',
       padding: '16px',
-      backgroundColor: appConfig.theme.colors.primary["050"],
-      border: '1px solid',
-      borderColor: appConfig.theme.colors.neutral["150"],
-      borderRadius: '10px',
+      backgroundColor: appConfig.theme.colors.primary["03"],
+      borderRadius: '5px',
       flex: 1,
       minHeight: '240px',
     }}
@@ -122,8 +118,8 @@ export default function HomePage() {
     <Text
     variant="body4"
     styleSheet={{
-      color: appConfig.theme.colors.neutral["050"],
-      backgroundColor: appConfig.theme.colors.primary["000"],
+      color: appConfig.theme.colors.neutral["01"],
+      backgroundColor: appConfig.theme.colors.primary["01"],
       padding: '3px 10px',
       borderRadius: '1000px'
     }}

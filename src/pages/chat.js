@@ -3,7 +3,7 @@ import { useState } from 'react';
 import appConfig from '../../config.json';
 
 import GlobalStyle from '../assets/styles/global';
-import Container from './styles';
+import Container from '../assets/styles/styles';
 
 export default function ChatPage() {
 
@@ -37,7 +37,7 @@ export default function ChatPage() {
                         flex: 1,
                         boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
                         borderRadius: '5px',
-                        backgroundColor: appConfig.theme.colors.primary["100"],
+                        backgroundColor: appConfig.theme.colors.primary["05"],
                         height: '100%',
                         maxWidth: '95%',
                         maxHeight: '95vh',
@@ -51,7 +51,7 @@ export default function ChatPage() {
                             display: 'flex',
                             flex: 1,
                             height: '80%',
-                            backgroundColor: appConfig.theme.colors.primary["050"],
+                            backgroundColor: appConfig.theme.colors.primary["04"],
                             flexDirection: 'column',
                             borderRadius: '5px',
                             padding: '16px',
@@ -93,9 +93,9 @@ export default function ChatPage() {
                                     resize: 'none',
                                     borderRadius: '5px',
                                     padding: '6px 8px',
-                                    backgroundColor: appConfig.theme.colors.primary["000"],
+                                    backgroundColor: appConfig.theme.colors.primary["03"],
                                     marginRight: '12px',
-                                    color: appConfig.theme.colors.neutral["000"],
+                                    color: appConfig.theme.colors.neutral["01"],
                                 }}
                             />
                         </Box>
@@ -109,7 +109,7 @@ export default function ChatPage() {
 function Header() {
     return (
         <>
-            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: appConfig.theme.colors.neutral['03']}} >
                 <Text variant='heading5'>
                     Chat
                 </Text>
@@ -118,6 +118,12 @@ function Header() {
                     colorVariant='neutral'
                     label='Logout'
                     href="/"
+                    styleSheet={{
+                        color: appConfig.theme.colors.neutral['03'],
+                        hover: {
+                            backgroundColor: appConfig.theme.colors.primary['04']
+                        }
+                    }}
                 />
             </Box>
         </>
@@ -134,8 +140,7 @@ function MessageList(props) {
                 display: 'flex',
                 flexDirection: 'column-reverse',
                 flex: 1,
-                color: appConfig.theme.colors.neutral["000"],
-                fontWeight: 700,
+                color: appConfig.theme.colors.neutral["02"],
                 marginBottom: '16px',
             }}
         >
@@ -149,8 +154,9 @@ function MessageList(props) {
                             padding: '6px',
                             marginBottom: '12px',
                             fontWeight: 500,
+                            transition: ".25s",
                             hover: {
-                                backgroundColor: appConfig.theme.colors.primary["000"],
+                                backgroundColor: appConfig.theme.colors.primary["03"],
                             }
                         }}
                     >
@@ -169,14 +175,14 @@ function MessageList(props) {
                                 }}
                                 src={`https://github.com/strawndri.png`}
                             />
-                            <Text tag="strong">
+                            <Text tag="strong" styleSheet={{color: appConfig.theme.colors.neutral['01']}}>
                                 {message.from}
                             </Text>
                             <Text
                                 styleSheet={{
                                     fontSize: '10px',
                                     marginLeft: '8px',
-                                    color: appConfig.theme.colors.neutral["050"],
+                                    color: appConfig.theme.colors.neutral["03"],
                                 }}
                                 tag="span"
                             >

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import appConfig from '../../config.json';
+import appConfig from '../../../config.json';
 
 const Container = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ const Container = styled.div`
 
     .welcome {
         font-size: 1.4em;
-        color: ${appConfig.theme.colors.neutral["000"]};
+        color: ${appConfig.theme.colors.neutral["01"]};
     }
 `
 
