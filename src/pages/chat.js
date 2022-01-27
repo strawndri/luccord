@@ -70,7 +70,7 @@ export default function ChatPage() {
                             as="form"
                             styleSheet={{
                                 display: 'flex',
-                                alignItems: 'center',
+                                alignItems: 'center'
                             }}
                         >
                             <TextField
@@ -98,6 +98,12 @@ export default function ChatPage() {
                                     color: appConfig.theme.colors.neutral["01"],
                                 }}
                             />
+                            <Button label="Enviar" styleSheet={{
+                                backgroundColor: appConfig.theme.colors.secondary['02'],
+                                hover: {
+                                    backgroundColor: appConfig.theme.colors.secondary['03']
+                                }
+                            }}/>
                         </Box>
                     </Box>
                 </Box>
