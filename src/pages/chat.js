@@ -1,6 +1,9 @@
-import { Icon, Box, Text, TextField, Image, Button } from '@skynexui/components';
+import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import appConfig from '../../config.json';
+import { BtnSendSticker } from '../components/BtnSendSticker';
 
 import { createClient } from '@supabase/supabase-js';
 
@@ -9,41 +12,60 @@ import Container from '../assets/styles/styles';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
 const SUPABASE_URL = 'https://xtzudbuzbysbikfxynvn.supabase.co';
-const subaBaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+const supaBaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+function listenMessagesOnTime(addMessage) {
+    return supaBaseClient
+    .from('messages')
+    .on('INSERT', (response) => {
+        addMessage(response.new)
+
+    })
+    .subscribe()
+}
 
 export default function ChatPage() {
 
+    const routing = useRouter();
+    const currentUser = routing.query.username;
     const [message, setMessage] = useState('');
     const [messagesList, setmessagesList] = useState([]);
 
     useEffect(() => {
-        subaBaseClient
+        supaBaseClient
             .from('messages')
             .select('*')
             .order('id', { ascending: false })
             .then(({ data }) => {
                 setmessagesList(data)
             });
+
+            listenMessagesOnTime((newMessage) => {
+                // console.log(newMessage)
+                setmessagesList((currentMessagesList) => {
+                    return [
+                        newMessage,
+                        ...currentMessagesList,
+                    ]
+                })
+            })
     }, []);
 
     const handleNewMessage = (newMessage) => {
 
         const message = {
             // id: messagesList.length + 1,
-            from: 'strawndri',
+            from: currentUser,
             txtMessage: newMessage
         }
 
-        subaBaseClient
+        supaBaseClient
             .from('messages')
             .insert([
                 message
             ])
             .then(({ data }) => {
-                setmessagesList([
-                    data[0],
-                    ...messagesList
-                ])
+                
             })
 
         setMessage("")
@@ -97,6 +119,20 @@ export default function ChatPage() {
                                 alignItems: 'center'
                             }}
                         >
+
+                            <Button iconName="image" styleSheet={{
+                                 marginBottom: '8px',
+                                 marginRight: '10px',
+                                 backgroundColor: appConfig.theme.colors.secondary['02'],
+                                 hover: {
+                                     backgroundColor: appConfig.theme.colors.secondary['02'],
+                                     filter: 'brightness(0.9)'
+                                 },
+                                 focus: {
+                                     backgroundColor: appConfig.theme.colors.secondary['03']
+                                 }
+                            }}/>
+
                             <TextField
                                 value={message}
                                 onChange={(event) => {
@@ -112,7 +148,7 @@ export default function ChatPage() {
                                 placeholder="Insira sua mensagem aqui..."
                                 type="textarea"
                                 styleSheet={{
-                                    width: '95%',
+                                    width: '88%',
                                     border: '0',
                                     resize: 'none',
                                     borderRadius: '5px',
@@ -123,21 +159,19 @@ export default function ChatPage() {
                                 }}
                             />
 
-                            <Button iconName="image" styleSheet={{
-                                marginRight: '5px',
-                                backgroundColor: appConfig.theme.colors.secondary['02'],
-                                hover: {
-                                    backgroundColor: appConfig.theme.colors.secondary['03']
-                                },
-                                focus: {
-                                    backgroundColor: appConfig.theme.colors.secondary['03']
-                                }
-                            }}/>
+
+                            <BtnSendSticker 
+                                onStickerClick={(sticker) => {
+                                    handleNewMessage(`:sticker:${sticker}`)
+                                }}
+                            />
 
                             <Button iconName="arrowUp" styleSheet={{
+                                marginBottom: '8px',
                                 backgroundColor: appConfig.theme.colors.secondary['02'],
                                 hover: {
-                                    backgroundColor: appConfig.theme.colors.secondary['04']
+                                    backgroundColor: appConfig.theme.colors.secondary['02'],
+                                    filter: 'brightness(0.9)'
                                 },
                                 focus: {
                                     backgroundColor: appConfig.theme.colors.secondary['03']
@@ -237,7 +271,16 @@ function MessageList(props) {
                                 {(new Date().toLocaleDateString())}
                             </Text>
                         </Box>
-                        {message.txtMessage}
+
+                        {/* Declarativo */}
+                        {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
+                        {message.txtMessage.startsWith(':sticker:')
+                            ? (
+                                <Image src={message.txtMessage.replace(':sticker:', '')} styleSheet={{width: '10%'}}/>
+                            )
+                            : (
+                                message.txtMessage
+                            )}
                     </Text>
                 )
             })}

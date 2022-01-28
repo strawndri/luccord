@@ -38,7 +38,7 @@ export default function HomePage() {
     as="form"
     onSubmit={function (event) {
       event.preventDefault();
-      routing.push('/chat')
+      routing.push(`/chat?username=${username}`)
     }}
     styleSheet={{
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -60,7 +60,7 @@ export default function HomePage() {
       // Alterar o valor da variável
       setUsername(currentValue)
 
-      if (username.length > 3) {
+      if (username.length >= 2) {
         setUserImg(`https://github.com/${currentValue}.png`)
       } else {
         setUserImg('https://cliply.co/wp-content/uploads/2021/08/372108630_DISCORD_LOGO_BLACK_400.gif');
