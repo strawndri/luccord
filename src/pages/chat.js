@@ -1,12 +1,12 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
-import appConfig from '../../config.json';
-import { BtnSendSticker } from '../components/BtnSendSticker';
-
 import { createClient } from '@supabase/supabase-js';
 
+import { BtnSendSticker } from '../components/BtnSendSticker/BtnSendSticker';
+import { ButtonChat } from '../components/ButtonChat/ButtonChat';
+
+import appConfig from '../../config.json';
 import GlobalStyle from '../assets/styles/global';
 import Container from '../assets/styles/styles';
 
@@ -16,12 +16,12 @@ const supaBaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 function listenMessagesOnTime(addMessage) {
     return supaBaseClient
-    .from('messages')
-    .on('INSERT', (response) => {
-        addMessage(response.new)
+        .from('messages')
+        .on('INSERT', (response) => {
+            addMessage(response.new)
 
-    })
-    .subscribe()
+        })
+        .subscribe()
 }
 
 export default function ChatPage() {
@@ -40,15 +40,15 @@ export default function ChatPage() {
                 setmessagesList(data)
             });
 
-            listenMessagesOnTime((newMessage) => {
-                // console.log(newMessage)
-                setmessagesList((currentMessagesList) => {
-                    return [
-                        newMessage,
-                        ...currentMessagesList,
-                    ]
-                })
+        listenMessagesOnTime((newMessage) => {
+            // console.log(newMessage)
+            setmessagesList((currentMessagesList) => {
+                return [
+                    newMessage,
+                    ...currentMessagesList,
+                ]
             })
+        })
     }, []);
 
     const handleNewMessage = (newMessage) => {
@@ -65,7 +65,7 @@ export default function ChatPage() {
                 message
             ])
             .then(({ data }) => {
-                
+
             })
 
         setMessage("")
@@ -120,18 +120,7 @@ export default function ChatPage() {
                             }}
                         >
 
-                            <Button iconName="image" styleSheet={{
-                                 marginBottom: '8px',
-                                 marginRight: '10px',
-                                 backgroundColor: appConfig.theme.colors.secondary['02'],
-                                 hover: {
-                                     backgroundColor: appConfig.theme.colors.secondary['02'],
-                                     filter: 'brightness(0.9)'
-                                 },
-                                 focus: {
-                                     backgroundColor: appConfig.theme.colors.secondary['03']
-                                 }
-                            }}/>
+                            <ButtonChat icon="image"/>
 
                             <TextField
                                 value={message}
@@ -160,23 +149,13 @@ export default function ChatPage() {
                             />
 
 
-                            <BtnSendSticker 
+                            <BtnSendSticker
                                 onStickerClick={(sticker) => {
                                     handleNewMessage(`:sticker:${sticker}`)
                                 }}
                             />
 
-                            <Button iconName="arrowUp" styleSheet={{
-                                marginBottom: '8px',
-                                backgroundColor: appConfig.theme.colors.secondary['02'],
-                                hover: {
-                                    backgroundColor: appConfig.theme.colors.secondary['02'],
-                                    filter: 'brightness(0.9)'
-                                },
-                                focus: {
-                                    backgroundColor: appConfig.theme.colors.secondary['03']
-                                }
-                            }}/>
+                            <ButtonChat icon="arrowUp"/>
                         </Box>
                     </Box>
                 </Box>
@@ -276,7 +255,7 @@ function MessageList(props) {
                         {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
                         {message.txtMessage.startsWith(':sticker:')
                             ? (
-                                <Image src={message.txtMessage.replace(':sticker:', '')} styleSheet={{width: '10%'}}/>
+                                <Image src={message.txtMessage.replace(':sticker:', '')} styleSheet={{ width: '10%' }} />
                             )
                             : (
                                 message.txtMessage

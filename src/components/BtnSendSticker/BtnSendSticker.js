@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Button, Text, Image } from '@skynexui/components';
-import appConfig from '../../config.json'
+import appConfig from '../../../config.json'
+
+import { ButtonChat } from '../ButtonChat/ButtonChat';
 
 export function BtnSendSticker(props) {
   const [isOpen, setOpenState] = React.useState('');
@@ -13,29 +15,19 @@ export function BtnSendSticker(props) {
       }}
     >
       <Button
-        styleSheet={{
-          borderRadius: '20%',
-          padding: '0 3px 0 0',
-          minWidth: '45px',
-          minHeight: '45px',
-          fontSize: '20px',
-          marginBottom: '8px',
-          lineHeight: '0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.secondary['02'],
-          hover: {
+        iconName='FaStar'
+        onClick={() => setOpenState(!isOpen)}
+        styleSheet={{display: 'flex',
+        maxWidth: '100px',
+        margin: '0 6px 8px 0',
+        backgroundColor: appConfig.theme.colors.secondary['02'],
+        hover: {
             backgroundColor: appConfig.theme.colors.secondary['02'],
             filter: 'brightness(0.9)'
-          },
-          focus: {
+        },
+        focus: {
             backgroundColor: appConfig.theme.colors.secondary['03']
-        }
-
-        }}
-        label="⭐"
-        onClick={() => setOpenState(!isOpen)}
+        },}}
       />
       {isOpen && (
         <Box
