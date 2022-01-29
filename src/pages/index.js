@@ -8,6 +8,11 @@ import Container from '../assets/styles/styles';
 
 export default function HomePage() {
 
+  // fetch(`https://api.github.com/users/strawndri`)
+  // .then(response => response.json())
+  // .then(data => console.log(data))
+  // // .catch(e => console.log(e))
+
   const [username, setUsername] = useState('');
   const [userImage, setUserImage] = useState('/userError.gif');
   const [userInfo, setUserInfo] = useState([]);
@@ -68,7 +73,6 @@ export default function HomePage() {
         ? (
           setUserImage(`https://github.com/${currentValue}.png`),
           setUserIsValid(false)
-          // setUserInfo(fetch(`https://api.github.com/users/${currentValue}`))
         )
         : (
           setUserImage('/userError.gif')

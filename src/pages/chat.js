@@ -143,7 +143,7 @@ export default function ChatPage() {
                                     borderRadius: '5px',
                                     padding: '6px 8px',
                                     backgroundColor: appConfig.theme.colors.primary["03"],
-                                    marginRight: '12px',
+                                    margin: '0 8px',
                                     color: appConfig.theme.colors.neutral["01"],
                                 }}
                             />

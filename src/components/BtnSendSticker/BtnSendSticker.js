@@ -17,17 +17,18 @@ export function BtnSendSticker(props) {
       <Button
         iconName='FaStar'
         onClick={() => setOpenState(!isOpen)}
-        styleSheet={{display: 'flex',
-        maxWidth: '100px',
-        margin: '0 6px 8px 0',
-        backgroundColor: appConfig.theme.colors.secondary['02'],
-        hover: {
-            backgroundColor: appConfig.theme.colors.secondary['02'],
-            filter: 'brightness(0.9)'
-        },
-        focus: {
-            backgroundColor: appConfig.theme.colors.secondary['03']
-        },}}
+        styleSheet={{
+          fontSize: '15px',
+          margin: '0 4px 8px 4px',
+          backgroundColor: appConfig.theme.colors.secondary['02'],
+          hover: {
+              backgroundColor: appConfig.theme.colors.secondary['02'],
+              filter: 'brightness(0.9)'
+          },
+          focus: {
+              backgroundColor: appConfig.theme.colors.secondary['03']
+          },
+      }}
       />
       {isOpen && (
         <Box
@@ -66,6 +67,7 @@ export function BtnSendSticker(props) {
               flex: 1,
               paddingTop: '16px',
               overflow: 'scroll',
+              overflowX: 'hidden'
             }}
           >
             {appConfig.stickers.map((sticker) => (
