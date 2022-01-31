@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
-import { Box, Button, Text, TextField, Image } from '@skynexui/components'
 import appConfig from '../config.json';
 
 import GlobalStyle from '../src/assets/styles/global';
-import Container from '../src/assets/styles/styles';
+import {Container, Box} from '../src/assets/styles/styles';
 
 export default function HomePage() {
 
@@ -32,23 +31,9 @@ export default function HomePage() {
       <GlobalStyle />
       <Container>
 
-        <Box
-          styleSheet={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexDirection: {
-              xs: 'column',
-              sm: 'row',
-            },
-            width: '100%', maxWidth: '700px',
-            borderRadius: '5px', padding: '32px', margin: '16px',
-            boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-            backgroundColor: appConfig.theme.colors.primary["05"],
-          }}
-        >
+        <Box>
           {/* Formulário */}
-          <Box
+          {/* <Box
             as="form"
             onSubmit={function (event) {
               event.preventDefault();
@@ -114,12 +99,12 @@ export default function HomePage() {
                 mainColorStrong: appConfig.theme.colors.secondary["03"],
               }}
             />
-          </Box>
+          </Box> */}
           {/* Formulário */}
 
 
           {/* Photo Area */}
-          <Box
+          {/* <Box
             styleSheet={{
               display: 'flex',
               flexDirection: 'column',
@@ -154,7 +139,7 @@ export default function HomePage() {
             >
               {username}
             </Text>
-          </Box>
+          </Box> */}
           {/* Photo Area */}
         </Box>
       </Container>
