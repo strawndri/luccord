@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 
-import { BtnSendSticker } from '../components/BtnSendSticker/BtnSendSticker';
-import { ButtonChat } from '../components/ButtonChat/ButtonChat';
+import { BtnSendSticker } from '../src/components/BtnSendSticker';
+import { ButtonChat } from '../src/components/ButtonChat/ButtonChat';
 
-import appConfig from '../../config.json';
-import GlobalStyle from '../assets/styles/global';
-import Container from '../assets/styles/styles';
+import appConfig from '../config.json';
+import GlobalStyle from '../src/assets/styles/global';
+import Container from '../src/assets/styles/styles';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
 const SUPABASE_URL = 'https://xtzudbuzbysbikfxynvn.supabase.co';
