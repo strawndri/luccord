@@ -1,19 +1,16 @@
 import GlobalStyle from '../../assets/styles/global';
 
-const Form = (props) => {
+const Form = () => {
     return (
 
         <>
             <GlobalStyle />
-
-            <form>
-                {/* onSubmit={function (event) {
+            <form onSubmit={function (event) {
                     event.preventDefault();
                     routing.push(`/chat?username=${username}`)
-                }} */}
+                }}>
                 {/* styleSheet={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
+                    
                 }} */}
 
                 <h1 className="welcome">Bem Vinda(o)!</h1>
