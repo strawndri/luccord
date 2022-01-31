@@ -13,7 +13,7 @@ const Form = () => {
                     
                 }} */}
 
-                <h1 className="welcome">Bem Vinda(o)!</h1>
+                <h1>Bem Vinda(o)!</h1>
                 {/* <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutral["03"] }}>
                     {appConfig.name}
                 </Text> */}
