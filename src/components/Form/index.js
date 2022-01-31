@@ -1,14 +1,17 @@
 import GlobalStyle from '../../assets/styles/global';
+import FormField from './styles'
 
 const Form = () => {
     return (
 
         <>
             <GlobalStyle />
-            <form onSubmit={function (event) {
+            <FormField >
+
+            {/* onSubmit={function (event) {
                     event.preventDefault();
                     routing.push(`/chat?username=${username}`)
-                }}>
+                }} */}
                 {/* styleSheet={{
                     
                 }} */}
@@ -68,7 +71,7 @@ const Form = () => {
                         mainColorStrong: appConfig.theme.colors.secondary["03"],
                     }}
                 /> */}
-            </form>
+            </FormField>
         </>
     )
 }

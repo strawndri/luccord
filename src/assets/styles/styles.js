@@ -26,4 +26,4 @@ const Box = styled.div`
     background-color: ${appConfig.theme.colors.primary["05"]};
 
 `
-export { Container, Box };
+export {Container, Box};
