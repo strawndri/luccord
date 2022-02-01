@@ -75,9 +75,7 @@ export default function HomePage() {
             />
             <button
               disabled={userIsValid}
-              type='submit'
-              label='Entrar'
-            />
+              type='submit'>Entrar</button>
           </Form>
 
           <section className='photoArea'>

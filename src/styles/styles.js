@@ -6,11 +6,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #0005;
-
-    h1, h2 {
-        font-size: 1.4em;
-        color: ${appConfig.theme.colors.neutral["01"]};
-    }
 `;
 
 const Box = styled.div`
@@ -20,10 +15,21 @@ const Box = styled.div`
     width: 100%; 
     max-width: 700px;
     border-radius: 5px; 
-    padding: 32px; 
+    padding: 2em 2em ; 
     margin: 16px;
     box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
     background-color: ${appConfig.theme.colors.primary["05"]};
+
+    h1{
+        font-size: 1.5em;
+        color: ${appConfig.theme.colors.neutral["01"]};
+    }
+
+    h2 {
+        font-size: 1em;
+        font-weight: 100;
+        color: ${appConfig.theme.colors.neutral["02"]}
+    }
 
     .photoArea {
         display: flex;
@@ -45,8 +51,8 @@ const Box = styled.div`
     .userInfo {
         color: ${appConfig.theme.colors.neutral["01"]};
         background-color: ${appConfig.theme.colors.primary["01"]};
-        padding: '3px 10px';
-        border-radius: '1000px';
+        padding: 3px 10px;
+        border-radius: 1000px;
     }
 `
 
