@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
-// import Form from '../components/Form';
-import {Container, Box} from '../styles/styles';
+import Form from '../components/Form/styles';
+import { Container, Box } from '../styles/styles';
+
+import appConfig from '../../config.json';
 
 export default function HomePage() {
 
@@ -31,48 +33,65 @@ export default function HomePage() {
 
         <Box>
 
-          teste
-
-          {/* <Form></Form> */}
-
-          {/* Photo Area */}
-          {/* <Box
-            styleSheet={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              maxWidth: '200px',
-              padding: '16px',
-              backgroundColor: appConfig.theme.colors.primary["03"],
-              borderRadius: '5px',
-              flex: 1,
-              minHeight: '240px',
+          <Form
+            as='form'
+            onSubmit={function (event) {
+              event.preventDefault();
+              routing.push(`/chat?username=${username}`)
             }}
           >
-            <Image
-              styleSheet={{
-                borderRadius: '50%',
-                marginBottom: '16px',
+            <h1>Bem Vinda(o)!</h1>
+            <h2>{appConfig.name}</h2>
+
+            <input
+              value={username}
+              placeholder="Digite seu usuário do Github"
+              onChange={function (event) {
+                // Capturar valor
+                const currentValue = event.target.value;
+
+                // Alterar o valor da variável
+                setUsername(currentValue)
+
+                fetch(`https://api.github.com/users/${currentValue}`)
+                  .then(response => {
+                    response.json()
+
+                      .then(data => {
+
+                        username.length <= 2 || data.message == 'Not Found'
+                          ? (
+                            setUserImage('/userError.gif')
+
+                          )
+                          : (
+                            setUserIsValid(false),
+                            setUserImage(`https://github.com/${currentValue}.png`),
+                            handleInformation(data)
+                          )
+                      })
+                  })
               }}
+            />
+            <button
+              disabled={userIsValid}
+              type='submit'
+              label='Entrar'
+            />
+          </Form>
+
+          <section className='photoArea'>
+            <img className="icon"
               src={userImage}
               onChange={function (event) {
                 console.log(event)
               }}
               alt=" "
             />
-            <Text
-              variant="body4"
-              styleSheet={{
-                color: appConfig.theme.colors.neutral["01"],
-                backgroundColor: appConfig.theme.colors.primary["01"],
-                padding: '3px 10px',
-                borderRadius: '1000px'
-              }}
-            >
+            <p className='userInfo'>
               {username}
-            </Text>
-          </Box> */}
-          {/* Photo Area */}
+            </p>
+          </section>
         </Box>
       </Container>
     </>
