@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
-import Form from '../src/components/Form';
-import GlobalStyle from '../src/assets/styles/global';
-import {Container, Box} from '../src/assets/styles/styles';
+// import Form from '../components/Form';
+import {Container, Box} from '../styles/styles';
 
 export default function HomePage() {
 
@@ -28,12 +27,13 @@ export default function HomePage() {
 
   return (
     <>
-      <GlobalStyle />
       <Container>
 
         <Box>
 
-          <Form></Form>
+          teste
+
+          {/* <Form></Form> */}
 
           {/* Photo Area */}
           {/* <Box
