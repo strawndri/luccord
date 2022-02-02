@@ -23,8 +23,6 @@ export default function Home() {
 
     setUserInfo(information)
   }
-
-
   return (
     <>
       <Container>
@@ -77,6 +75,9 @@ export default function Home() {
           </Form>
 
           <section className='photoArea'>
+            <p className='userInfo'>
+              Username: {username}
+            </p>
             <img className="icon"
               src={userImage}
               onChange={function (event) {
@@ -84,8 +85,12 @@ export default function Home() {
               }}
               alt=" "
             />
+
             <p className='userInfo'>
-              {username}
+              Name: {userInfo.oficialName}
+            </p>
+            <p className='userInfo'>
+              Location: {userInfo.location}
             </p>
           </section>
         </Box>

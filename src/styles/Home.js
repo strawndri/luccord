@@ -48,6 +48,9 @@ const Box = styled.div`
         }
 
     .userInfo {
+        margin-bottom: .5em;
+        font-size: .8em;
+        font-weight: 100;
         color: ${appConfig.theme.colors.neutral["01"]};
         background-color: ${appConfig.theme.colors.primary["01"]};
         padding: 3px 10px;
