@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import background from '../../src/assets/background.jpg';
 
 export default createGlobalStyle`
   * {
@@ -10,8 +11,8 @@ export default createGlobalStyle`
     }
 
     body {
-    font-family: 'Calibri', sans-serif;
-    background: url("https://i.pinimg.com/originals/5b/f5/6e/5bf56e6309c48ea454690462b1e86f8f.jpg") center / cover no-repeat fixed;
+    font-family: 'Roboto', sans-serif;
+    background: url('${background}') center / cover no-repeat fixed;
     }
 
     html, body, #__next {

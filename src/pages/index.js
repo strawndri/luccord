@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
-import Form from '../components/Form/styles';
-import { Container, Box } from '../styles/styles';
-
+import { Container, Box, Form } from '../styles/Home';
 import appConfig from '../../config.json';
 
-export default function HomePage() {
+export default function Home() {
 
   const [username, setUsername] = useState('');
   const [userImage, setUserImage] = useState('/userError.gif');
