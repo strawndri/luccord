@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import { Container, Box, Form } from '../styles/Home';
 import appConfig from '../../config.json';
+import Button from '../components/ButtonChat/ButtonChat';
 
 export default function Home() {
 
@@ -69,9 +70,9 @@ export default function Home() {
                   })
               }}
             />
-            <button
+            <Button
               disabled={userIsValid}
-              type='submit'>Entrar</button>
+              type='submit'>Entrar</Button>
           </Form>
 
           <section className='photoArea'>

@@ -77,17 +77,13 @@ const Form = styled.div`
     }
 
     button {
-        padding: .6em;
         width: 20em;
-        border-radius: 2px;
-        color: ${appConfig.theme.colors.neutral["02"]};
-        background-color: ${appConfig.theme.colors.secondary["02"]};
+        color: ${appConfig.theme.colors.neutral['01']};
         transition: .5s;
     }
 
-    button:hover {
-        cursor: pointer;
-        background-color: ${appConfig.theme.colors.secondary["03"]};
+    button:disabled {
+        opacity: 0.8;
     }
 `;
 
