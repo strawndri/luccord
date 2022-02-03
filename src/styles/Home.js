@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import appConfig from '../../config.json';
 
-const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
-
 const Box = styled.div`
     display: flex;
     align-items: center;
@@ -76,6 +70,10 @@ const Form = styled.div`
         background-color: ${appConfig.theme.colors.primary["03"]};
     }
 
+    input:focus {
+        outline: none;
+    }
+
     button {
         width: 20em;
         color: ${appConfig.theme.colors.neutral['01']};
@@ -87,4 +85,4 @@ const Form = styled.div`
     }
 `;
 
-export { Container, Box, Form };
+export { Box, Form };

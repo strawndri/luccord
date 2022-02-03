@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import background from '../../src/assets/background.jpg';
 
 export default createGlobalStyle`
+
   * {
     margin: 0;
     padding: 0;
@@ -13,11 +14,13 @@ export default createGlobalStyle`
     body {
     font-family: 'Roboto', sans-serif;
     background: url('${background}') center / cover no-repeat fixed;
-    }
-
-    html, body, #__next {
+  }
+  
+  html, body, #__next {
     min-height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
     }
     

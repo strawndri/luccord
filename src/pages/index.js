@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
-import { Container, Box, Form } from '../styles/Home';
+import { Box, Form } from '../styles/Home';
 import appConfig from '../../config.json';
 import Button from '../components/ButtonChat/ButtonChat';
 
@@ -26,7 +26,6 @@ export default function Home() {
   }
   return (
     <>
-      <Container>
 
         <Box>
 
@@ -95,7 +94,6 @@ export default function Home() {
             </p>
           </section>
         </Box>
-      </Container>
     </>
   );
 }
