@@ -39,8 +39,9 @@ const Box = styled.div`
         display: flex;
         flex-direction: column-reverse;
         flex: 1;
-        color: ${appConfig.theme.colors.neutral["02"]};
+        max-height: 25em;
         margin-bottom: 16px;
+        color: ${appConfig.theme.colors.neutral["02"]};
     }
 
     .messages__item {
@@ -88,6 +89,11 @@ const Box = styled.div`
         width: 10em;
     }
 
+    .text-field {
+        display: flex;
+        align-items: center;
+    }
+    
     .text-field textarea {
         width: 88%;
         border: 0;

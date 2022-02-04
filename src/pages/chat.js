@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 
-import { BtnSendSticker } from '../components/BtnSendSticker/BtnSendSticker';
-import { Button } from '../components/Button/Button';
+import BtnSendSticker from '../components/BtnSendSticker/BtnSendSticker';
+import Button from '../components/Button/Button';
 import Box from '../styles/Chat';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
@@ -75,17 +75,13 @@ const ChatPage = () => {
                 </section>
                 <section className="chat">
                     <MessageList messages={messagesList} />
-                    {messagesList.map((currentMessage) => {
-                            return (
-                                <li key={currentMessage.id}>
-                                    {currentMessage.from}: {currentMessage.txtMessage}
-                                </li>
-                            )
-                        })}
 
                     <form className="text-field">
 
-                        {/* <Button>img</Button> */}
+                        <Button
+                            disabled={false}
+                            type='button'
+                        >img</Button>
 
                         <textarea
                             className=""
@@ -110,7 +106,10 @@ const ChatPage = () => {
                             }}
                         /> */}
 
-                        {/* <Button>Enviar</Button> */}
+                        <Button
+                             disabled={false}
+                             type='button'
+                        >Enviar</Button>
                         </form>
                 </section>
             </Box>
