@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
 
 import BtnSendSticker from '../components/BtnSendSticker/BtnSendSticker';
@@ -71,7 +72,7 @@ const ChatPage = () => {
             <Box>
                 <section className="header">
                     <h3>Logado com </h3>
-                    <a href="/">Sair</a>
+                    <Link href="/">Sair</Link>
                 </section>
                 <section className="chat">
                     <MessageList messages={messagesList} />
