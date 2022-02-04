@@ -55,6 +55,11 @@ const Box = styled.div`
         }
     }
 
+    .messages__user {
+        display: flex;
+        align-items: center;
+    }
+
     .user-image {
         width: 20px;
         height: 20px;
@@ -81,6 +86,17 @@ const Box = styled.div`
 
     .sticker {
         width: 10em;
+    }
+
+    .text-field textarea {
+        width: 88%;
+        border: 0;
+        resize: none;
+        border-radius: 5px;
+        padding: 6px 8px;
+        background-color: ${appConfig.theme.colors.primary["03"]};
+        margin: 0 8px;
+        color: ${appConfig.theme.colors.neutral["01"]};
     }
 `
 

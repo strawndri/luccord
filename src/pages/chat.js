@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 
 import { BtnSendSticker } from '../components/BtnSendSticker/BtnSendSticker';
+import { Button } from '../components/Button/Button';
 import Box from '../styles/Chat';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
@@ -82,17 +83,12 @@ const ChatPage = () => {
                             )
                         })}
 
-                    {/* <Box
-                        as="form"
-                        styleSheet={{
-                            display: 'flex',
-                            alignItems: 'center'
-                        }}
-                    >
+                    <form className="text-field">
 
-                        <ButtonChat icon="image" />
+                        {/* <Button>img</Button> */}
 
-                        <TextField
+                        <textarea
+                            className=""
                             value={message}
                             onChange={(event) => {
                                 const currentValue = event.target.value;
@@ -105,28 +101,17 @@ const ChatPage = () => {
                                 }
                             }}
                             placeholder="Insira sua mensagem aqui..."
-                            type="textarea"
-                            styleSheet={{
-                                width: '88%',
-                                border: '0',
-                                resize: 'none',
-                                borderRadius: '5px',
-                                padding: '6px 8px',
-                                backgroundColor: appConfig.theme.colors.primary["03"],
-                                margin: '0 8px',
-                                color: appConfig.theme.colors.neutral["01"],
-                            }}
                         />
 
 
-                        <BtnSendSticker
+                        {/* <BtnSendSticker
                             onStickerClick={(sticker) => {
                                 handleNewMessage(`:sticker:${sticker}`)
                             }}
-                        />
+                        /> */}
 
-                        <ButtonChat icon="arrowUp" />
-                        </Box> */}
+                        {/* <Button>Enviar</Button> */}
+                        </form>
                 </section>
             </Box>
         </>
