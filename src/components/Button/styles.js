@@ -16,6 +16,10 @@ const Container = styled.button`
     &:focus {
         background-color: ${appConfig.theme.colors.secondary['03']};
     }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 `
 
 export default Container;

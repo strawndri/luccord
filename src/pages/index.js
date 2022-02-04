@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import { Box, Form } from '../styles/Home';
 import appConfig from '../../config.json';
-import Button from '../components/ButtonChat/ButtonChat';
+import Button from '../components/Button/Button';
 
 export default function Home() {
 
