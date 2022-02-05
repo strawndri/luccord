@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import BtnSendSticker from '../components/BtnSendSticker/BtnSendSticker';
 import Button from '../components/Button/Button';
 import Box from '../styles/Chat';
+import { rgba } from 'polished';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMxNDM5MiwiZXhwIjoxOTU4ODkwMzkyfQ.Jri-ykLhzA5jByMYR20YuVsFtTfQKLvwo3JoUqfNBnQ';
 const SUPABASE_URL = 'https://xtzudbuzbysbikfxynvn.supabase.co';
@@ -79,10 +80,9 @@ const ChatPage = () => {
 
                     <form className="text-field">
 
-                        <Button
-                            disabled={false}
-                            type='button'
-                        >img</Button>
+                        <Button disabled={false} type='button'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+                        </Button>
 
                         <textarea
                             className=""
@@ -107,10 +107,9 @@ const ChatPage = () => {
                             }}
                         />
 
-                        <Button
-                             disabled={false}
-                             type='button'
-                        >Enviar</Button>
+                        <Button disabled={false} type='button'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+                        </Button>
                         </form>
                 </section>
             </Box>

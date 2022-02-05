@@ -47,13 +47,13 @@ const Box = styled.div`
     .messages__item {
         border-radius: 5px;
         padding: 6px;
-        margin-bottom: 12px;
+        margin: 1em 1em 0 0;
         font-weight: 500;
         transition: .25s;
-
-        &:hover: {
-            background-color: ${appConfig.theme.colors.primary["03"]};
-        }
+    }
+    
+    .messages__item:hover {
+        background-color: rgba(1, 1, 1, 0.1);
     }
 
     .messages__user {
@@ -71,6 +71,8 @@ const Box = styled.div`
 
     .user-from {
         color: ${appConfig.theme.colors.neutral['01']};
+        font-size: .9em;
+        font-weight: 400;
         display: inline-block;
     }
 
@@ -82,7 +84,8 @@ const Box = styled.div`
 
     .message {
         width: 100%;
-        margin: 2em 0;
+        margin: 1em 0;
+        font-weight: 200;
     }
 
     .sticker {
@@ -100,6 +103,7 @@ const Box = styled.div`
         resize: none;
         border-radius: 5px;
         padding: 6px 8px;
+        font-family: 'Roboto', sans-serif;
         background-color: ${appConfig.theme.colors.primary["03"]};
         margin: 0 8px;
         color: ${appConfig.theme.colors.neutral["01"]};
