@@ -101,11 +101,11 @@ const ChatPage = () => {
                         />
 
 
-                        {/* <BtnSendSticker
+                        <BtnSendSticker
                             onStickerClick={(sticker) => {
                                 handleNewMessage(`:sticker:${sticker}`)
                             }}
-                        /> */}
+                        />
 
                         <Button
                              disabled={false}

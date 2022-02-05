@@ -1,12 +1,14 @@
-import React from 'react';
+import { useState } from 'react';
 import Box from './styles'
+import appConfig from '../../../config.json';
 
-export function BtnSendSticker(props) {
-  const [isOpen, setOpenState] = React.useState('');
+const BtnSendSticker = (props) => {
+
+  const [isOpen, setOpenState] = useState('');
 
   return (
     <Box>
-      <button onClick={() => setOpenState(!isOpen)} />
+      <button type="button" onClick={() => setOpenState(!isOpen)} />
       {isOpen && (
         <div className="box__stickers" onClick={() => setOpenState(false)}>
           <p>Stickers</p>
@@ -14,14 +16,12 @@ export function BtnSendSticker(props) {
             {appConfig.stickers.map((sticker) => (
               <li className="box__stickers-item"
                 onClick={() => {
-                //   console.log('[COMPONENTE] Clicou no sticker:', sticker);
+                  // console.log('[COMPONENTE] Clicou no sticker:', sticker);
                   if (Boolean(props.onStickerClick)) {
                     props.onStickerClick(sticker);
                   }
                 }}
-                key={sticker}
-                
-                >
+                key={sticker}>
                 <img src={sticker} alt="Sticker"/>
               </li>
             ))}
@@ -31,3 +31,5 @@ export function BtnSendSticker(props) {
     </Box>
   )
 }
+
+export default BtnSendSticker;
