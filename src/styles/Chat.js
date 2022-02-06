@@ -108,6 +108,8 @@ const Box = styled.div`
         margin: 0 8px;
         color: ${appConfig.theme.colors.neutral["01"]};
     }
+
+}
 `
 
 export default Box;

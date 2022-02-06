@@ -107,7 +107,14 @@ const ChatPage = () => {
                             }}
                         />
 
-                        <Button disabled={false} type='button'>
+                        <Button 
+                            disabled={false} 
+                            type='button' 
+                            onClick={(event) => {
+                                event.preventDefault();
+                                handleNewMessage(message);
+                            }}>
+
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
                         </Button>
                         </form>
