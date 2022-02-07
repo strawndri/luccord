@@ -22,6 +22,16 @@ const Box = styled.div`
         color: ${appConfig.theme.colors.neutral["03"]};
     }
 
+    a {
+        color: ${appConfig.theme.colors.neutral['03']};
+        text-decoration: none;
+        transition: .25s;
+    }
+
+    a:hover {
+        color: ${appConfig.theme.colors.neutral['02']};
+    }
+
     .chat {
         position: relative;
         display: flex;

@@ -73,7 +73,9 @@ const ChatPage = () => {
             <Box>
                 <section className="header">
                     <h3>Logado com </h3>
+
                     <Link href="/">Sair</Link>
+
                 </section>
                 <section className="chat">
                     <MessageList messages={messagesList} />
