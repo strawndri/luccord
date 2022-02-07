@@ -59,7 +59,6 @@ export default function Home() {
                           ? (
                             setUserImage('/userError.gif'),
                             setUserIsValid(true)
-
                           )
                           : (
                             setUserIsValid(false),

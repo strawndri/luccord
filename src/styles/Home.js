@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import appConfig from '../../config.json';
 
 const Box = styled.div`
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%; 
-    max-width: 700px;
+    max-width: 800px;
     border-radius: 5px; 
-    padding: 2em 2em ; 
+    padding: 2em 2em; 
     margin: 16px;
     box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
     background-color: ${appConfig.theme.colors.primary["05"]};
@@ -28,8 +29,8 @@ const Box = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 200px;
-        padding: 16px;
+        max-width: 300px;
+        padding: 2em 4em;
         background-color: ${appConfig.theme.colors.primary["03"]};
         border-radius: 5px;
         min-height: 240px;
@@ -42,7 +43,7 @@ const Box = styled.div`
         }
 
     .userInfo {
-        margin-bottom: .5em;
+        margin-bottom: .8em;
         font-size: .8em;
         font-weight: 100;
         color: ${appConfig.theme.colors.neutral["01"]};
