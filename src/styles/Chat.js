@@ -99,10 +99,11 @@ const Box = styled.div`
     
     .text-field textarea {
         width: 88%;
+        height: 3.2em;
         border: 0;
         resize: none;
         border-radius: 5px;
-        padding: 6px 8px;
+        padding: 12px 8px;
         font-family: 'Roboto', sans-serif;
         background-color: ${appConfig.theme.colors.primary["03"]};
         margin: 0 8px;

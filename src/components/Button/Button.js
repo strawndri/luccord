@@ -7,7 +7,7 @@ const Button = (props) => {
         <Container
             disabled={props.disabled}
             type={props.type}
-            // onClick={() => {props.onClick}}
+            onClick={props.onClick}
         >
             {props.children}
         </Container>

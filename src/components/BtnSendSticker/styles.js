@@ -7,13 +7,16 @@ const Box = styled.div`
     margin-right: 10px;
 
     button {
-        width: 2.5em;
-        height: 2.5em;
+        display: flex;
+        align-items: center;
+        width: 2.8em;
+        height: 2.8em;
+        padding: .7em;
         font-size: 15px;
-        border-radius: 50%;
+        border-radius: 5px;
         background-color: ${appConfig.theme.colors.secondary["02"]};
     }
-
+    
     button:before {
         content: '⭐';
     }
