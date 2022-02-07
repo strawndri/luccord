@@ -57,7 +57,8 @@ export default function Home() {
 
                         username.length <= 2 || data.message == 'Not Found'
                           ? (
-                            setUserImage('/userError.gif')
+                            setUserImage('/userError.gif'),
+                            setUserIsValid(true)
 
                           )
                           : (
