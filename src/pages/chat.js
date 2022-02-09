@@ -135,8 +135,8 @@ function MessageList(props) {
                         key={message.id}>
 
                         <div className="messages_user">
-                            <img className="user-image" src={`https://github.com/${message.from}.png`}/>
-                            <h4 className="user-from">{message.from}</h4>
+                            <img className="user-image" src={`https://github.com/${message.from}.png`} onClick={userCard}/>
+                            <h4 className="user-from" onClick={userCard}>{message.from}</h4>
                                 <span className="date">
                                     {(new Date().toLocaleDateString('pt-BR'))}
                                 </span>
@@ -159,6 +159,13 @@ function MessageList(props) {
 
 
         </ul>
+    )
+}
+
+function userCard() {
+    console.log('userCard!')
+    return (
+        <div>user card :)</div>
     )
 }
 
