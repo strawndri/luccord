@@ -5,6 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 
 import BtnSendSticker from '../components/BtnSendSticker/BtnSendSticker';
 import Button from '../components/Button/Button';
+import UserCard from '../components/UserCard/UserCard';
 import Box from '../styles/Chat';
 import { rgba } from 'polished';
 
@@ -135,11 +136,12 @@ function MessageList(props) {
                         key={message.id}>
 
                         <div className="messages_user">
-                            <img className="user-image" src={`https://github.com/${message.from}.png`} onClick={userCard}/>
-                            <h4 className="user-from" onClick={userCard}>{message.from}</h4>
-                                <span className="date">
-                                    {(new Date().toLocaleDateString('pt-BR'))}
-                                </span>
+
+                            <UserCard message={message} />
+                               
+                            <span className="date">
+                                {(new Date().toLocaleDateString('pt-BR'))}
+                            </span>
 
                             {/* Declarativo */}
                             {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
@@ -159,13 +161,6 @@ function MessageList(props) {
 
 
         </ul>
-    )
-}
-
-function userCard() {
-    console.log('userCard!')
-    return (
-        <div>user card :)</div>
     )
 }
 

@@ -66,26 +66,6 @@ const Box = styled.div`
         background-color: rgba(1, 1, 1, 0.1);
     }
 
-    .messages__user {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-image {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 8px;
-    }
-
-    .user-from {
-        color: ${appConfig.theme.colors.neutral['01']};
-        font-size: .9em;
-        font-weight: 400;
-        display: inline-block;
-    }
-
     .date {
         font-size: 10px;
         margin-left: 8px;
