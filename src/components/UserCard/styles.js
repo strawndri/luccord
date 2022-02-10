@@ -4,7 +4,7 @@ import appConfig from '../../../config.json';
 const Container = styled.div`
 
     display: flex;
-    width: auto;
+    width: 5em;
 
     .user-image {
         width: 20px;
@@ -17,6 +17,10 @@ const Container = styled.div`
         color: ${appConfig.theme.colors.neutral['01']};
         font-size: .9em;
         font-weight: 400;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 `
 
