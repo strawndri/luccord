@@ -3,14 +3,24 @@ import Container from './styles';
 
 const UserCard = (props) => {
 
-    const [openCard, setOpenCard] = useState('');
+  const [openCard, setOpenCard] = useState('');
 
-    return (
-        <Container onClick={() => {console.log('clicou')}}>
-            <img className="user-image" src={`https://github.com/${props.message.from}.png`}/>
-            <h4 className="user-from">{props.message.from}</h4>
-        </Container>
-    );
+  return (
+    <Container onClick={() => { setOpenCard(!openCard) }}>
+      <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
+      <h4 className="user-from">{props.message.from}</h4>
+
+      {openCard && (
+
+        <div className="infoCard">
+          <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
+          <h5>{props.message.from}</h5>
+        </div>
+
+      )}
+
+    </Container>
+  );
 }
 
 

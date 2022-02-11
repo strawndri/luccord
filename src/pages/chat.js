@@ -24,9 +24,9 @@ function listenMessagesOnTime(addMessage) {
 }
 
 const ChatPage = () => {
-
     const routing = useRouter();
     const currentUser = routing.query.username;
+
     const [message, setMessage] = useState('');
     const [messagesList, setmessagesList] = useState([]);
 
