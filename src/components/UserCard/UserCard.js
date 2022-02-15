@@ -46,18 +46,16 @@ const UserCard = (props) => {
           <section className="header">
             <img className="header__user-image" src={`https://github.com/${infoCard.username}.png`} />
             <h5 className="header__username">{infoCard.username}</h5>
+            <p>{infoCard.firstname} - {infoCard.location}</p>
           </section>
 
           <section className="user-details">
 
-            <div className="bio">
-              <p>{infoCard.firstname}, de {infoCard.location}</p>
-              <p>{infoCard.bio}</p>
-            </div>
+            <p className="bio">{infoCard.bio}</p>
 
             <ul>
-              <li>{infoCard.followers}</li>
-              <li>{infoCard.following}</li>
+              <li>Folowers:{infoCard.followers}</li>
+              <li>Following:{infoCard.following}</li>
             </ul>
           </section>
 

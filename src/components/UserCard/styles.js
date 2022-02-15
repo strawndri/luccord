@@ -31,7 +31,7 @@ const Card = styled.div`
     position: absolute;
     bottom: 24px;
     left: 10px;
-    height: 8em;
+    width: 20em;
     padding: 1em;
     z-index: 1;
     border-radius: 10px 10px 10px 0;
@@ -41,6 +41,8 @@ const Card = styled.div`
     .header {
         display: flex;
         flex-direction: column;
+        color: ${appConfig.theme.colors.neutral['05']};
+        border-bottom: 1px solid black;
     }
 
     .header__user-image {
@@ -50,8 +52,17 @@ const Card = styled.div`
     }
 
     .header__username {
-        color: ${appConfig.theme.colors.neutral['05']};
         margin: .5em 0;
+    }
+
+    .bio {
+        display: flex;
+        flex-direction: column;
+
+        font-weight: 400;
+        font-size: .9em;
+        margin: .5em 0;
+        color: ${appConfig.theme.colors.neutral['05']};
     }
 `
 
