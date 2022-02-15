@@ -44,6 +44,16 @@ const UserCard = (props) => {
         <div className="infoCard">
           <img className="user-image" src={`https://github.com/${infoCard.username}.png`} />
           <h5>{infoCard.username}</h5>
+
+          <div className="user-bio">
+            <p>{infoCard.firstname}, de {infoCard.location}</p>
+            <p>{infoCard.bio}</p>
+          </div>
+
+          <ul>
+            <li>{infoCard.followers}</li>
+            <li>{infoCard.following}</li>
+          </ul>
         </div>
 
       )}
