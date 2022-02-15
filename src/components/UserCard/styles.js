@@ -20,23 +20,39 @@ const Container = styled.div`
         font-weight: 400;
     }
 
-    .infoCard {
-        position: absolute;
-        bottom: 24px;
-        left: 10px;
-        height: 8em;
-        width: 15em;
-        padding: 1em;
-        z-index: 1;
-        border-radius: 10px 10px 10px 0;
-        box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.24);
-        background-color: ${appConfig.theme.colors.secondary['02']}
-    }
-
     &:hover {
         cursor: pointer;
     }
 
 `
 
-export default Container;
+const Card = styled.div`
+
+    position: absolute;
+    bottom: 24px;
+    left: 10px;
+    height: 8em;
+    padding: 1em;
+    z-index: 1;
+    border-radius: 10px 10px 10px 0;
+    box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.24);
+    background-color: ${appConfig.theme.colors.secondary['01']};
+
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__user-image {
+        width: 5em;
+        border-radius: 50%;
+        border: 1px solid #f9f9f9;
+    }
+
+    .header__username {
+        color: ${appConfig.theme.colors.neutral['05']};
+        margin: .5em 0;
+    }
+`
+
+export {Container, Card};

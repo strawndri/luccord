@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Container from './styles';
+import { Container, Card } from './styles';
 
 const UserCard = (props) => {
 
@@ -41,20 +41,27 @@ const UserCard = (props) => {
 
       {openCard && (
 
-        <div className="infoCard">
-          <img className="user-image" src={`https://github.com/${infoCard.username}.png`} />
-          <h5>{infoCard.username}</h5>
+        <Card>
 
-          <div className="user-bio">
-            <p>{infoCard.firstname}, de {infoCard.location}</p>
-            <p>{infoCard.bio}</p>
-          </div>
+          <section className="header">
+            <img className="header__user-image" src={`https://github.com/${infoCard.username}.png`} />
+            <h5 className="header__username">{infoCard.username}</h5>
+          </section>
 
-          <ul>
-            <li>{infoCard.followers}</li>
-            <li>{infoCard.following}</li>
-          </ul>
-        </div>
+          <section className="user-details">
+
+            <div className="bio">
+              <p>{infoCard.firstname}, de {infoCard.location}</p>
+              <p>{infoCard.bio}</p>
+            </div>
+
+            <ul>
+              <li>{infoCard.followers}</li>
+              <li>{infoCard.following}</li>
+            </ul>
+          </section>
+
+        </Card>
 
       )}
 
