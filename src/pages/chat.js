@@ -128,6 +128,7 @@ const ChatPage = () => {
 }
 
 function MessageList(props) {
+
     return (
         <ul className="messages__list">
             {props.messages.map((message) => {
