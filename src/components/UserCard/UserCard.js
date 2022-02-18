@@ -52,13 +52,13 @@ const UserCard = (props) => {
             <p>{infoCard.firstname} - {infoCard.location}</p>
           </section>
 
-          <section className="user-details">
+          <section className="user__details">
 
             <p className="bio">{infoCard.bio}</p>
 
             <ul>
-              <li>Folowers:{infoCard.followers}</li>
-              <li>Following:{infoCard.following}</li>
+              <li>Folowers: {infoCard.followers}</li>
+              <li>Following: {infoCard.following}</li>
             </ul>
           </section>
 

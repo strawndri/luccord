@@ -36,7 +36,7 @@ const Card = styled.div`
     z-index: 1;
     border-radius: 10px 10px 10px 0;
     box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.24);
-    background-color: ${appConfig.theme.colors.secondary['01']};
+    background-color: ${appConfig.theme.colors.primary['01']};
 
     .header {
         display: flex;
@@ -56,14 +56,27 @@ const Card = styled.div`
         margin: .5em 0;
     }
 
-    .bio {
+    .user__details {
         display: flex;
         flex-direction: column;
 
         font-weight: 400;
         font-size: .9em;
-        margin: .5em 0;
+        margin: .5em 0 .2em 0;
         color: ${appConfig.theme.colors.neutral['05']};
+    }
+
+    .user__details ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .user__details li {
+        padding: .2em .8em;
+        margin: 1em 1em 0 .5em;
+        color: ${appConfig.theme.colors.neutral['02']};
+        border-radius: 10px;
+        background-color: ${appConfig.theme.colors.primary['02']};
     }
 `
 
