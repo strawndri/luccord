@@ -40,6 +40,7 @@ const Card = styled.div`
 
     .header {
         display: flex;
+        height: 8em;
         flex-direction: column;
         color: ${appConfig.theme.colors.neutral['05']};
         border-bottom: 1px solid black;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import { Container, Card } from './styles';
 
 const UserCard = (props) => {
@@ -45,7 +46,9 @@ const UserCard = (props) => {
 
           <section className="header">
             <img className="header__user-image" src={`https://github.com/${infoCard.username}.png`} />
-            <h5 className="header__username">{infoCard.username}</h5>
+            <Link href={`https://github.com/${infoCard.username}`}>
+              <a target="_blank">{infoCard.username}</a>
+            </Link>
             <p>{infoCard.firstname} - {infoCard.location}</p>
           </section>
 
