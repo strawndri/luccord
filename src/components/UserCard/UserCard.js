@@ -67,6 +67,7 @@ const UserCard = (props) => {
       )}
 
     </Container>
+    
   );
 }
 

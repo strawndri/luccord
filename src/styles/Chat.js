@@ -66,16 +66,23 @@ const Box = styled.div`
         background-color: rgba(1, 1, 1, 0.1);
     }
 
+
+    .messages__user {
+        display: flex;
+        align-items: center;
+    }
+
     .date {
         font-size: 10px;
-        margin-left: 8px;
         color: ${appConfig.theme.colors.neutral["03"]};
+        opacity: 0.5;
     }
 
     .message {
         width: 100%;
         margin: 1em 0;
-        font-weight: 200;
+        font-weight: 400;
+        font-size: .9em;
     }
 
     .sticker {

@@ -3,9 +3,10 @@ import appConfig from '../../../config.json';
 
 const Container = styled.div`
 
-    position: relative;
-    display: flex;
-    width: 5em;
+    display: flex;   
+    position: relative; 
+    margin-right: .8em;
+
 
     .user-image {
         width: 20px;

@@ -84,7 +84,7 @@ const ChatPage = () => {
                     <form className="text-field">
 
                         <Button disabled={false} type='button'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" /></svg>
                         </Button>
 
                         <textarea
@@ -110,17 +110,17 @@ const ChatPage = () => {
                             }}
                         />
 
-                        <Button 
-                            disabled={false} 
-                            type='button' 
+                        <Button
+                            disabled={false}
+                            type='button'
                             onClick={(event) => {
                                 event.preventDefault();
                                 handleNewMessage(message);
                             }}>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z" /></svg>
                         </Button>
-                        </form>
+                    </form>
                 </section>
             </Box>
         </>
@@ -136,26 +136,27 @@ function MessageList(props) {
                     <li className='messages__item'
                         key={message.id}>
 
-                        <div className="messages_user">
+                        <div className="messages__user">
 
                             <UserCard message={message} />
-                               
+
                             <span className="date">
                                 {(new Date().toLocaleDateString('pt-BR'))}
                             </span>
 
-                            {/* Declarativo */}
-                            {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
-                            {message.txtMessage.startsWith(':sticker:')
-                                ? (
-                                    <p className="message">
-                                        <img className="sticker" src={message.txtMessage.replace(':sticker:', '')} />
-                                    </p>
-                                )
-                                : (
-                                    <p className="message">{message.txtMessage}</p>
-                                )}
                         </div>
+
+                        {/* Declarativo */}
+                        {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
+                        {message.txtMessage.startsWith(':sticker:')
+                            ? (
+                                <p className="message">
+                                    <img className="sticker" src={message.txtMessage.replace(':sticker:', '')} />
+                                </p>
+                            )
+                            : (
+                                <p className="message">{message.txtMessage}</p>
+                            )}
                     </li>
                 );
             })}
