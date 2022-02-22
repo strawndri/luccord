@@ -30,31 +30,29 @@ const Container = styled.div`
 const Card = styled.div`
 
     position: absolute;
-    bottom: 24px;
+    bottom: ${props => props.bottom - 400}px;
     left: 10px;
-    width: 20em;
+    width: 18em;
     padding: 1em;
     z-index: 1;
-    border-radius: 10px 10px 10px 0;
+    border-radius: 10px;
     box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.24);
     background-color: ${appConfig.theme.colors.primary['01']};
 
+    transform: translate(62%, 50%);
+
     .header {
         display: flex;
-        height: 8em;
+        height: 9em;
         flex-direction: column;
         color: ${appConfig.theme.colors.neutral['05']};
         border-bottom: 1px solid black;
     }
 
     .header__user-image {
-        width: 5em;
+        width: 6em;
         border-radius: 50%;
         border: 1px solid #f9f9f9;
-    }
-
-    .header__username {
-        margin: .5em 0;
     }
 
     .user__details {
@@ -63,7 +61,7 @@ const Card = styled.div`
 
         font-weight: 400;
         font-size: .9em;
-        margin: .5em 0 .2em 0;
+        margin: 1em 0 .2em 0;
         color: ${appConfig.theme.colors.neutral['05']};
     }
 

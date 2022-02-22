@@ -5,7 +5,6 @@ import { Box, Form } from '../styles/Home';
 import appConfig from '../../config.json';
 import Button from '../components/Button/Button';
 
-
 export default function Home() {
 
   const [username, setUsername] = useState('');

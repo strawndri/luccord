@@ -6,6 +6,7 @@ const UserCard = (props) => {
 
   const [openCard, setOpenCard] = useState('');
   const [infoCard, setInfoCard] = useState([]);
+  const [height, setHeight] = useState('');
 
   const handleInfoCard = (data) => {
 
@@ -22,8 +23,7 @@ const UserCard = (props) => {
   }
 
   return (
-    <Container onClick={() => {
-
+    <Container onClick={(e) => {
 
       fetch(`https://api.github.com/users/${props.message.from}`)
         .then(response => {
@@ -35,14 +35,17 @@ const UserCard = (props) => {
         })
 
       setOpenCard(!openCard)
+      setHeight(e.screenY)
     }}
     >
-      <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
-      <h4 className="user-from">{props.message.from}</h4>
+      <div>
+        <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
+        <h4 className="user-from">{props.message.from}</h4>
+      </div>
 
       {openCard && (
 
-        <Card>
+        <Card bottom={height}>
 
           <section className="header">
             <img className="header__user-image" src={`https://github.com/${infoCard.username}.png`} />
