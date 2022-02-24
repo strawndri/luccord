@@ -3,7 +3,7 @@ import appConfig from '../../../config.json';
 
 const Container = styled.div`
 
-    display: flex;   
+    display: flex;  
     position: relative; 
     margin-right: .8em;
 
@@ -33,7 +33,7 @@ const Card = styled.div`
     bottom: ${props => props.bottom - 400}px;
     left: 10px;
     width: 18em;
-    padding: 1em;
+    padding: 1.5em 1em;
     z-index: 1;
     border-radius: 10px;
     box-shadow: 1px 2px 16px 1px rgba(0, 0, 0, 0.24);
@@ -53,6 +53,7 @@ const Card = styled.div`
         width: 6em;
         border-radius: 50%;
         border: 1px solid #f9f9f9;
+        margin: .2em;
     }
 
     .user__details {
@@ -72,7 +73,8 @@ const Card = styled.div`
 
     .user__details li {
         padding: .2em .8em;
-        margin: 1em 1em 0 .5em;
+        margin: 1.5em 1em 0 .5em;
+        font-size: 0.8em;
         color: ${appConfig.theme.colors.neutral['02']};
         border-radius: 10px;
         background-color: ${appConfig.theme.colors.primary['02']};

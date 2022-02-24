@@ -38,10 +38,8 @@ const UserCard = (props) => {
       setHeight(e.screenY)
     }}
     >
-      <div>
-        <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
-        <h4 className="user-from">{props.message.from}</h4>
-      </div>
+      <img className="user-image" src={`https://github.com/${props.message.from}.png`} />
+      <h4 className="user-from">{props.message.from}</h4>
 
       {openCard && (
 
