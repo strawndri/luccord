@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import appConfig from '../../../config.json';
 
-const Container = styled.button`
+const Container = styled.label`
 
     padding: .7em .8em;
     border-radius: 5px;
@@ -15,6 +15,10 @@ const Container = styled.button`
 
     &:disabled {
         cursor: not-allowed;
+    }
+
+    input {
+        display: none;
     }
 `
 
