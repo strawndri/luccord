@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { createClient } from '@supabase/supabase-js';
@@ -24,6 +24,7 @@ function listenMessagesOnTime(addMessage) {
 }
 
 const ChatPage = () => {
+
     const routing = useRouter();
     const currentUser = routing.query.username;
 
@@ -70,60 +71,65 @@ const ChatPage = () => {
     }
 
     return (
-        <>
-            <Box>
-                <section className="header">
-                    <h3>Logado com ✨ {currentUser} ✨</h3>
+        <Box>
+            <section className="header">
+                <h3>Logado com ✨ {currentUser} ✨</h3>
 
-                    <Link href="/">Sair</Link>
+                <Link href="/">Sair</Link>
 
-                </section>
-                <section className="chat">
-                    <MessageList messages={messagesList} />
+            </section>
+            <section className="chat">
+                <MessageList messages={messagesList} />
 
-                    <form className="text-field">
+                <form className="text-field">
 
-                        <Button disabled={false} type='button'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" /></svg>
-                        </Button>
+                    <Button
+                        disabled={false}
+                        onClick={(event) => {
+                            const img = event.target.files[0]['name']
+                            handleNewMessage(`:img:${img}`)
+                        }}
+                        type='file'
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" /></svg>
+                    </Button>
 
-                        <textarea
-                            className=""
-                            value={message}
-                            onChange={(event) => {
-                                const currentValue = event.target.value;
-                                setMessage(currentValue);
-                            }}
-                            onKeyPress={(event) => {
-                                if (event.key === "Enter") {
-                                    event.preventDefault();
-                                    handleNewMessage(message);
-                                }
-                            }}
-                            placeholder="Insira sua mensagem aqui..."
-                        />
-
-
-                        <BtnSendSticker
-                            onStickerClick={(sticker) => {
-                                handleNewMessage(`:sticker:${sticker}`)
-                            }}
-                        />
-
-                        <Button
-                            disabled={false}
-                            type='button'
-                            onClick={(event) => {
+                    <textarea
+                        className=""
+                        value={message}
+                        onChange={(event) => {
+                            const currentValue = event.target.value;
+                            setMessage(currentValue);
+                        }}
+                        onKeyPress={(event) => {
+                            if (event.key === "Enter") {
                                 event.preventDefault();
                                 handleNewMessage(message);
-                            }}>
+                            }
+                        }}
+                        placeholder="Insira sua mensagem aqui..."
+                    />
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z" /></svg>
-                        </Button>
-                    </form>
-                </section>
-            </Box>
-        </>
+
+                    <BtnSendSticker
+                        onStickerClick={(sticker) => {
+                            handleNewMessage(`:sticker:${sticker}`)
+                        }}
+                    />
+
+                    <Button
+                        disabled={false}
+                        type='button'
+                        onClick={(event) => {
+                            event.preventDefault();
+                            handleNewMessage(message);
+                        }}>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill={rgba(1, 1, 1, 0.8)}><path d="M12 0l8 9h-6v15h-4v-15h-6z" /></svg>
+                    </Button>
+                </form>
+            </section>
+        </Box>
     )
 }
 
@@ -148,6 +154,8 @@ function MessageList(props) {
 
                         {/* Declarativo */}
                         {/* {message.txtMessage.startsWith(':sticker:').toString()} */}
+
+
                         {message.txtMessage.startsWith(':sticker:')
                             ? (
                                 <p className="message">
@@ -155,7 +163,18 @@ function MessageList(props) {
                                 </p>
                             )
                             : (
-                                <p className="message">{message.txtMessage}</p>
+                                message.txtMessage.startsWith(':img:')
+                                    ? (
+                                        <p className="message">
+                                            <img className="sticker" src={message.txtMessage.replace(':img:', '')} />
+                                        </p>
+                                    )
+
+                                    : (
+                                        (
+                                            <p className="message">{message.txtMessage}</p>
+                                        )
+                                    )
                             )}
                     </li>
                 );
