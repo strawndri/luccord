@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import appConfig from '../../../config.json';
 
-const Container = styled.label`
+const Btn = styled.button`
 
     padding: .7em .8em;
     border-radius: 5px;
@@ -17,9 +17,6 @@ const Container = styled.label`
         cursor: not-allowed;
     }
 
-    input {
-        display: none;
-    }
 `
 
-export default Container;
+export default Btn;

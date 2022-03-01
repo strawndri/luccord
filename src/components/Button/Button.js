@@ -1,20 +1,17 @@
 import React from 'react';
-import Container from './styles';
-// import { UploadContext } from '../../providers/uploadImg';
+import Btn from './styles';
 
 const Button = (props) => {
 
-    // const img = React.useContext(UploadContext)
     return (
-        <Container>
-            <input
-                // disabled={props.disabled}
-                type={props.type}
-                onClick={props.onClick}
-                onChange={props.onChange}
-            />
+        <Btn
+            disabled={props.disabled}
+            type={props.type}
+            onClick={props.onClick}
+            onChange={props.onChange}
+        >
             {props.children}
-        </Container>
+        </Btn>
     );
 }
 

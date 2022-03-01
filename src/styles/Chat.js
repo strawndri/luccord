@@ -85,6 +85,22 @@ const Box = styled.div`
         font-size: .9em;
     }
 
+    .btnUpload {
+        border-radius: 5px;
+        padding: .7em .8em;
+        background-color: ${appConfig.theme.colors.secondary['02']};
+    }
+
+    .btnUpload:hover {
+        background-color: ${appConfig.theme.colors.secondary['02']};
+        filter: brightness(0.9);
+        cursor: pointer;
+    }
+
+    .btnUpload input {
+        display: none;
+    }
+
     .sticker {
         width: 10em;
     }

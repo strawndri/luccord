@@ -83,19 +83,20 @@ const ChatPage = () => {
 
                 <form className="text-field">
 
-                    <Button
-                        disabled={false}
+                    <label className="btnUpload">
+                    <input
+                        className="btnUpload"
                         onChange={(event) => {
 
-                            // criando uma url temporária
+                            // criando uma url
                             const img = URL.createObjectURL(event.target.files[0])
 
                             handleNewMessage(`:img:${img}`)
                         }}
                         type='file'
-                    >
+                    />
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={rgba(1, 1, 1, 0.8)}><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" /></svg>
-                    </Button>
+                    </label>
 
                     <textarea
                         className=""
