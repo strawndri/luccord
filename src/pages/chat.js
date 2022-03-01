@@ -85,8 +85,11 @@ const ChatPage = () => {
 
                     <Button
                         disabled={false}
-                        onClick={(event) => {
-                            const img = event.target.files[0]['name']
+                        onChange={(event) => {
+
+                            // criando uma url temporária
+                            const img = URL.createObjectURL(event.target.files[0])
+
                             handleNewMessage(`:img:${img}`)
                         }}
                         type='file'
